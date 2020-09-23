@@ -2,9 +2,9 @@ import { Ionicons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React from "react";
 import Favourite from "../screens/Favourite";
-import Search from "../screens/Search";
+import Search from "../screens/Search/Search";
 
-const SearchTabNavigator = ({ navigation }) => {
+const SearchTabNavigator = () => {
   const Tab = createBottomTabNavigator();
 
   return (
