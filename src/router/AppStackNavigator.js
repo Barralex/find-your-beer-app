@@ -2,7 +2,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import React from "react";
 import Home from "./../screens/Home";
-import Search from "./../screens/Search";
+import SearchTabNavigator from "./SearchTabNavigator";
 
 const Stack = createStackNavigator();
 
@@ -15,7 +15,11 @@ const AppStackNavigator = () => {
           component={Home}
           options={{ headerShown: false }}
         />
-        <Stack.Screen name="Search" component={Search} />
+        <Stack.Screen
+          name="SearchTabNavigator"
+          component={SearchTabNavigator}
+          options={{ title: null, headerShown: false }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

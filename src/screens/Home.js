@@ -29,7 +29,10 @@ const Home = ({ navigation }) => {
         ></Image>
       </View>
 
-      <Button block={true} onPress={() => navigation.navigate("Search")}>
+      <Button
+        block={true}
+        onPress={() => navigation.navigate("SearchTabNavigator")}
+      >
         <Text style={{ color: "white" }}> Search for beers</Text>
       </Button>
     </View>

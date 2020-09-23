@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default class Search extends Component {
+export default class Favourite extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -18,7 +18,7 @@ export default class Search extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text> Search </Text>
+        <Text> Favourite </Text>
       </View>
     );
   }
