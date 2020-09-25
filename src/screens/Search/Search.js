@@ -1,32 +1,28 @@
-import Axios from "axios";
 import { Container, Content } from "native-base";
 import React, { useState } from "react";
 import { Keyboard } from "react-native";
+import { useDispatch, useSelector } from "react-redux";
+import SearchActions from "../../store/reducers/search";
 import SearchHeader from "./SearchHeader";
 
-const beerSeach = (searchText) => {
+const beerSeach = (searchText, dispatch) => {
   Keyboard.dismiss();
   const lowerSearchText = searchText.toLowerCase();
-
-  const query =
-    "https://api.openbrewerydb.org/breweries/search?query=" + lowerSearchText;
-
-  Axios.get(query).then((response) => {
-    console.log(response.data);
-  });
+  dispatch(SearchActions.search(lowerSearchText));
 };
 
 const Search = () => {
   const [searchText, setSearchText] = useState("");
+  const dispatch = useDispatch();
+  const searchResult = useSelector(({ search }) => search.searchResult);
 
   return (
     <Container>
       <SearchHeader
         value={searchText}
         onChangeText={(searchText) => setSearchText(searchText)}
-        search={() => beerSeach(searchText)}
+        search={() => beerSeach(searchText, dispatch)}
       />
-
       <Content></Content>
     </Container>
   );
