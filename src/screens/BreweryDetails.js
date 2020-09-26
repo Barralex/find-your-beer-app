@@ -1,13 +1,19 @@
 import * as Linking from "expo-linking";
 import { Button, Content, Icon, List, ListItem } from "native-base";
 import React from "react";
-import { Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
+import MapView from "react-native-maps";
+
+const styles = StyleSheet.create({
+  mapStyle: {
+    width: 200,
+    height: 100,
+  },
+});
 
 const BreweryDetails = ({ route }) => {
   const { brewery } = route.params;
-
   console.log("brewery", brewery);
-
   return (
     <Content>
       <List style={{ backgroundColor: "white" }}>
@@ -80,6 +86,20 @@ const BreweryDetails = ({ route }) => {
             <Text>{brewery.city}</Text>
             <Text>{brewery.street}</Text>
           </View>
+
+          {brewery.latitude !== null || brewery.longitude !== null ? (
+            <View>
+              <MapView
+                initialRegion={{
+                  latitude: parseFloat(brewery.latitude, 10),
+                  longitude: parseFloat(brewery.longitude, 10),
+                  latitudeDelta: 0.0922,
+                  longitudeDelta: 0.0421,
+                }}
+                style={styles.mapStyle}
+              />
+            </View>
+          ) : null}
         </ListItem>
       </List>
     </Content>
