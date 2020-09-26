@@ -7,7 +7,7 @@ const SearchHeader = ({ value, onChangeText, search }) => {
       <Item>
         <Icon name="ios-search"></Icon>
         <Input
-          placeholder="Enter brewery name"
+          placeholder="Enter search term"
           returnKeyType="search"
           value={value}
           onChangeText={onChangeText}

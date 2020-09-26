@@ -33,7 +33,7 @@ const Home = ({ navigation }) => {
         block={true}
         onPress={() => navigation.navigate("SearchTabNavigator")}
       >
-        <Text style={{ color: "white" }}> Search for beers</Text>
+        <Text style={{ color: "white" }}> Search for breweries</Text>
       </Button>
     </View>
   );

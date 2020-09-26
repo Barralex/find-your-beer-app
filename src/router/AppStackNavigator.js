@@ -1,6 +1,7 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import React from "react";
+import BreweryDetails from "./../screens/BreweryDetails";
 import Home from "./../screens/Home";
 import SearchTabNavigator from "./SearchTabNavigator";
 
@@ -19,6 +20,11 @@ const AppStackNavigator = () => {
           name="SearchTabNavigator"
           component={SearchTabNavigator}
           options={{ title: null, headerShown: false }}
+        />
+        <Stack.Screen
+          name="BreweryDetails"
+          component={BreweryDetails}
+          options={{ title: "Brewery Details" }}
         />
       </Stack.Navigator>
     </NavigationContainer>
