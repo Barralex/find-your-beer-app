@@ -1,13 +1,13 @@
 import * as Linking from "expo-linking";
 import { Button, Content, Icon, List, ListItem } from "native-base";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Dimensions, StyleSheet, Text, View } from "react-native";
 import MapView from "react-native-maps";
 
 const styles = StyleSheet.create({
   mapStyle: {
-    width: 200,
-    height: 100,
+    width: Dimensions.get("screen").width,
+    height: 200,
   },
 });
 
@@ -79,28 +79,44 @@ const BreweryDetails = ({ route }) => {
         </ListItem>
 
         <ListItem
-          style={{ flexDirection: "row", justifyContent: "space-between" }}
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+          }}
         >
           <View>
             <Text>{brewery.state}</Text>
             <Text>{brewery.city}</Text>
             <Text>{brewery.street}</Text>
           </View>
+        </ListItem>
 
-          {brewery.latitude !== null || brewery.longitude !== null ? (
-            <View>
+        {brewery.latitude !== null || brewery.longitude !== null ? (
+          <View>
+            <ListItem itemDivider>
+              <Text>Map</Text>
+            </ListItem>
+
+            <ListItem
+              style={{
+                flex: 1,
+                flexDirection: "row",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
               <MapView
                 initialRegion={{
-                  latitude: parseFloat(brewery.latitude, 10),
-                  longitude: parseFloat(brewery.longitude, 10),
+                  latitude: parseFloat(brewery.latitude),
+                  longitude: parseFloat(brewery.longitude),
                   latitudeDelta: 0.0922,
                   longitudeDelta: 0.0421,
                 }}
                 style={styles.mapStyle}
               />
-            </View>
-          ) : null}
-        </ListItem>
+            </ListItem>
+          </View>
+        ) : null}
       </List>
     </Content>
   );
