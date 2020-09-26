@@ -1,6 +1,7 @@
 import { useFonts } from "expo-font";
 import React from "react";
 import { Provider } from "react-redux";
+import FullScreenLoading from "./src/components/FullScreenLoading";
 import AppStackNavigator from "./src/router/AppStackNavigator";
 import Loading from "./src/screens/Loading";
 import store from "./src/store";
@@ -14,6 +15,7 @@ const App = () => {
   if (loaded) {
     return (
       <Provider store={store}>
+        <FullScreenLoading />
         <AppStackNavigator />
       </Provider>
     );

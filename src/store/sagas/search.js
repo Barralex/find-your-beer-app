@@ -1,4 +1,5 @@
 import { call, getContext, put, takeEvery } from "redux-saga/effects";
+import LoadingActions from "../reducers/loading";
 import SearchActions, { SearchTypes } from "../reducers/search";
 
 export default [searchWatcher];
@@ -9,7 +10,7 @@ function* searchWatcher() {
 
 function* searchHandler({ searchValue }) {
   try {
-    // yield put(LoadingActions.loadingOn());
+    yield put(LoadingActions.loadingOn());
 
     const APIClient = yield getContext("apiClient");
     const searchResult = yield call(APIClient.search, searchValue);
@@ -17,6 +18,6 @@ function* searchHandler({ searchValue }) {
   } catch (error) {
     console.log("Ups! something went wrong", error);
   } finally {
-    // yield put(LoadingActions.loadingOff());
+    yield put(LoadingActions.loadingOff());
   }
 }
