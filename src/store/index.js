@@ -1,5 +1,6 @@
 import { applyMiddleware, createStore } from "redux";
 import createSagaMiddleware from "redux-saga";
+import Storage from "../libs/Storage";
 import APIClient from "./../libs/APIClient";
 import configureReducers from "./reducers/index";
 import sagas from "./sagas";
@@ -8,6 +9,7 @@ function ConfigureStore() {
   const sagaMiddleware = createSagaMiddleware({
     context: {
       apiClient: APIClient,
+      storage: Storage,
     },
   });
 

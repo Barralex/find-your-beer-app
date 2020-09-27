@@ -1,8 +1,10 @@
 import * as Linking from "expo-linking";
 import { Button, Content, Icon, List, ListItem } from "native-base";
-import React from "react";
+import React, { useEffect } from "react";
 import { Dimensions, StyleSheet, Text, View } from "react-native";
 import MapView, { Marker } from "react-native-maps";
+import { useDispatch, useSelector } from "react-redux";
+import FavouriteActions from "../store/reducers/favourite";
 
 const styles = StyleSheet.create({
   mapStyle: {
@@ -13,7 +15,16 @@ const styles = StyleSheet.create({
 
 const BreweryDetails = ({ route }) => {
   const { brewery } = route.params;
-  console.log("brewery", brewery);
+
+  const dispatch = useDispatch();
+  const isFavouriteBrewery = useSelector(
+    ({ favourite }) => favourite.favourite !== null
+  );
+
+  useEffect(() => {
+    dispatch(FavouriteActions.getFavourite(brewery.id.toString()));
+  });
+
   return (
     <Content>
       <List style={{ backgroundColor: "white" }}>
@@ -28,7 +39,21 @@ const BreweryDetails = ({ route }) => {
             <Text>{brewery.name}</Text>
           </View>
           <View>
-            <Button bordered onPress={() => console.log("w")} light>
+            <Button
+              bordered={!isFavouriteBrewery}
+              onPress={() =>
+                dispatch(
+                  isFavouriteBrewery
+                    ? FavouriteActions.removeFavourite(brewery.id.toString())
+                    : FavouriteActions.setFavourite({
+                        id: brewery.id.toString(),
+                        name: brewery.name,
+                      })
+                )
+              }
+              danger={isFavouriteBrewery}
+              light={!isFavouriteBrewery}
+            >
               <Icon name="heart" />
             </Button>
           </View>
