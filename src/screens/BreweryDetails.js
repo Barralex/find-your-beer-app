@@ -2,7 +2,7 @@ import * as Linking from "expo-linking";
 import { Button, Content, Icon, List, ListItem } from "native-base";
 import React from "react";
 import { Dimensions, StyleSheet, Text, View } from "react-native";
-import MapView from "react-native-maps";
+import MapView, { Marker } from "react-native-maps";
 
 const styles = StyleSheet.create({
   mapStyle: {
@@ -28,7 +28,7 @@ const BreweryDetails = ({ route }) => {
             <Text>{brewery.name}</Text>
           </View>
           <View>
-            <Button bordered onPress={() => console.log("w")} danger>
+            <Button bordered onPress={() => console.log("w")} light>
               <Icon name="heart" />
             </Button>
           </View>
@@ -113,7 +113,14 @@ const BreweryDetails = ({ route }) => {
                   longitudeDelta: 0.0421,
                 }}
                 style={styles.mapStyle}
-              />
+              >
+                <Marker
+                  coordinate={{
+                    latitude: parseFloat(brewery.latitude),
+                    longitude: parseFloat(brewery.longitude),
+                  }}
+                />
+              </MapView>
             </ListItem>
           </View>
         ) : null}
