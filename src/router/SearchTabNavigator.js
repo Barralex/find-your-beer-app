@@ -1,11 +1,16 @@
 import { Ionicons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import React from "react";
+import React, { useEffect } from "react";
+import NavigationService from "../libs/NavigationService";
 import Favourite from "../screens/Favourite";
 import Search from "../screens/Search/Search";
 
-const SearchTabNavigator = () => {
+const SearchTabNavigator = ({ navigation }) => {
   const Tab = createBottomTabNavigator();
+
+  useEffect(() => {
+    NavigationService.setNavigation(navigation);
+  }, [navigation]);
 
   return (
     <Tab.Navigator

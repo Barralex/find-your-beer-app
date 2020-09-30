@@ -18,12 +18,14 @@ const BreweryDetails = ({ route }) => {
 
   const dispatch = useDispatch();
   const isFavouriteBrewery = useSelector(
-    ({ favourite }) => favourite.favourite !== null
+    ({ favourite }) => favourite.isFavourite
   );
 
   useEffect(() => {
-    dispatch(FavouriteActions.getFavourite(brewery.id.toString()));
-  });
+    dispatch(FavouriteActions.isFavouriteRequest(brewery.id.toString()));
+  }, [isFavouriteBrewery]);
+
+  console.log("isFavouriteBrewer", isFavouriteBrewery);
 
   return (
     <Content>

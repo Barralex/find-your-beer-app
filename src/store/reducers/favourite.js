@@ -1,35 +1,41 @@
 import { createActions, createReducer } from "reduxsauce";
 
 const INITIAL_STATE = {
-  favouriteList: [{}],
+  favouriteList: [],
   favourite: {},
+  isFavourite: false,
 };
 
 const { Types, Creators } = createActions({
   setFavourite: ["favourite"],
-  getFavourite: ["favouriteUuid"],
-  favouriteDone: ["favourite"],
+
+  getFavouriteRequest: ["favouriteUuid"],
+
+  isFavouriteRequest: ["favouriteUuid"],
+  isFavouriteSuccess: ["status"],
+
   getFavouriteList: null,
+  getFavouriteListDone: ["favouriteList"],
   removeFavourite: ["favouriteUuid"],
 });
 
-const getFavouriteList = (state) => {
+const getFavouriteListDone = (state, { favouriteList }) => {
   return {
     ...state,
     favouriteList,
   };
 };
 
-const favouriteDone = (state, { favourite }) => {
+const isFavouriteSuccess = (state, { status }) => {
   return {
     ...state,
-    favourite,
+    isFavourite: status,
   };
 };
 
 export const reducer = createReducer(INITIAL_STATE, {
-  [Types.GET_FAVOURITE_LIST]: getFavouriteList,
-  [Types.FAVOURITE_DONE]: favouriteDone,
+  [Types.GET_FAVOURITE_LIST_DONE]: getFavouriteListDone,
+  [Types.IS_FAVOURITE_SUCCESS]: isFavouriteSuccess,
 });
 
 export const FavouriteTypes = Types;

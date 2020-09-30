@@ -1,5 +1,6 @@
 import { applyMiddleware, createStore } from "redux";
 import createSagaMiddleware from "redux-saga";
+import NavigationService from "../libs/NavigationService";
 import Storage from "../libs/Storage";
 import APIClient from "./../libs/APIClient";
 import configureReducers from "./reducers/index";
@@ -10,6 +11,7 @@ function ConfigureStore() {
     context: {
       apiClient: APIClient,
       storage: Storage,
+      navigation: NavigationService,
     },
   });
 

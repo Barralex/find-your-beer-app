@@ -17,6 +17,16 @@ class Storage {
     }
   };
 
+  getAll = async () => {
+    let keys = [];
+    try {
+      keys = await AsyncStorage.getAllKeys();
+      return await AsyncStorage.multiGet([...keys]);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   remove = async (key) => {
     try {
       return await AsyncStorage.removeItem(key);
