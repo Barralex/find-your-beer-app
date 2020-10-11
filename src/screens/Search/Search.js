@@ -30,6 +30,10 @@ const listStyles = StyleSheet.create({
   text: {
     fontSize: 16,
   },
+  location: {
+    fontSize: 12,
+    color: "grey",
+  },
   breweryItem: {
     flex: 1,
   },
@@ -52,6 +56,7 @@ const renderSeparator = () => {
 };
 
 const renderItem = ({ item }, navigation) => {
+  console.log(item);
   return (
     <TouchableOpacity
       style={listStyles.row}
@@ -59,6 +64,9 @@ const renderItem = ({ item }, navigation) => {
     >
       <View style={listStyles.breweryItem}>
         <Text style={listStyles.text}>{item.name}</Text>
+        <Text style={listStyles.location}>
+          Location: {item.country} - {item.city}
+        </Text>
       </View>
     </TouchableOpacity>
   );

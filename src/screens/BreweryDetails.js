@@ -25,8 +25,6 @@ const BreweryDetails = ({ route }) => {
     dispatch(FavouriteActions.isFavouriteRequest(brewery.id.toString()));
   }, [isFavouriteBrewery]);
 
-  console.log("isFavouriteBrewer", isFavouriteBrewery);
-
   return (
     <Content>
       <List style={{ backgroundColor: "white" }}>
