@@ -12,8 +12,7 @@ A React Native App that helps you find all kind of bars around the world through
 
 ## Running the app
 
-The app ask you for a number to create a list of fake data and insert into the Cosmo Azure Table. At the end the app will show how much time and 
-RU/s (Request unit per second) took the whole operation.
+Run _expo start_ command.
 
 ## Built With
 
