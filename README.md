@@ -1,5 +1,5 @@
 # Find your Beer App
-A react Native App that helps you find all kind of bars around the world through a simple search and save them as favorites.
+A React Native App that helps you find all kind of bars around the world through a simple search and save them as favorites.
 
 
 ![Find your Beer App](src/assets/find-your-beer-app.gif)
