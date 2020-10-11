@@ -56,7 +56,6 @@ const renderSeparator = () => {
 };
 
 const renderItem = ({ item }, navigation) => {
-  console.log(item);
   return (
     <TouchableOpacity
       style={listStyles.row}
@@ -90,6 +89,8 @@ const Search = ({ navigation }) => {
         renderItem={(item) => renderItem(item, navigation)}
         keyExtractor={(item) => item.id.toString()}
         ItemSeparatorComponent={renderSeparator}
+        onRefresh={() => beerSeach(searchText, dispatch)}
+        refreshing={false}
       ></FlatList>
     </View>
   );

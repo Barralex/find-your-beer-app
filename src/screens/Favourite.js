@@ -62,7 +62,7 @@ const renderItem = ({ item }, dispatch) => {
   );
 };
 
-const Favourite = ({ navigation }) => {
+const Favourite = () => {
   const dispatch = useDispatch();
   const favouriteList = useSelector(({ favourite }) => favourite.favouriteList);
 
@@ -77,6 +77,8 @@ const Favourite = ({ navigation }) => {
         renderItem={(item) => renderItem(item, dispatch)}
         keyExtractor={(item) => item[0].toString()}
         ItemSeparatorComponent={renderSeparator}
+        onRefresh={() => dispatch(FavouriteActions.getFavouriteList())}
+        refreshing={false}
       ></FlatList>
     </View>
   );
