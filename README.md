@@ -17,10 +17,10 @@ Run _expo start_ command.
 ## Built With
 
 * [React Native](https://docs.microsoft.com/en-us/dotnet/framework/winforms/) -  Open-source mobile application framework 
-* [Expo] (https://expo.io/) - React Native Open-source platform
-* [React-Redux] (https://react-redux.js.org/) - A predictable state container for JavaScript applications
-* [Redux-Sagas] (https://redux-saga.js.org/) - Application side effects handler.
-* [Axios] (https://github.com/axios/axios) - Promise based HTTP client for the browser and node.js
+* [Expo](https://expo.io/) - React Native Open-source platform
+* [React-Redux](https://react-redux.js.org/) - A predictable state container for JavaScript applications
+* [Redux-Sagas](https://redux-saga.js.org/) - Application side effects handler.
+* [Axios](https://github.com/axios/axios) - Promise based HTTP client for the browser and node.js
 
 ## Authors
 
