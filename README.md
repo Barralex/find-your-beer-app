@@ -22,6 +22,10 @@ Run _expo start_ command.
 * [Redux-Sagas](https://redux-saga.js.org/) - Application side effects handler.
 * [Axios](https://github.com/axios/axios) - Promise based HTTP client for the browser and node.js
 
+## Try it with Expo
+
+[Expo Project](https://expo.io/@barralex/projects/find-your-beer-app)
+
 ## Authors
 
 * **Luis Barral** - *All work* - [Barralex](https://github.com/Barralex)
